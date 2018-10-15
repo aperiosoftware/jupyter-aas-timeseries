@@ -1,3 +1,4 @@
+import json
 import ipywidgets as widgets
 from traitlets import Unicode
 
@@ -11,3 +12,8 @@ class TimeSeriesWidget(widgets.DOMWidget):
     _model_module = Unicode('ipytimeseries').tag(sync=True)
     _view_module_version = Unicode('^0.1.0').tag(sync=True)
     _model_module_version = Unicode('^0.1.0').tag(sync=True)
+
+    def load_json(self, filename):
+        with open(filename, 'r') as f:
+            data = json.load(f)
+        self.send(data)
