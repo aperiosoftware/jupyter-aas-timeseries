@@ -6,7 +6,7 @@ var _ = require('lodash');
 require('./aas-time-series-js/resources/stuquery.js');
 require('./aas-time-series-js/resources/graph.js');
 require('./aas-time-series-js/resources/timeseries.js');
-require('./aas-time-series-js/resources/aas.css');
+require('./aas-time-series-js/resources/timeseries.css');
 
 // We should have the resources at this point
 console.log('Loaded TimeSeries resources',S,Graph,TimeSeries)
@@ -66,7 +66,7 @@ var TimeSeriesView = widgets.DOMWidgetView.extend({
 			el.css({'width':width+'px','height':height+'px'});
 			
 			// Create the TimeSeries and make it fit to the parent
-			var t = TimeSeries.create(data,{fit:true});
+			var t = TimeSeries.create(data,{'fit':true,'tooltip':{'theme':'aas-theme'}});
 
 			// Attach the timeseries to the element
 			t.initialize(el[0]);	

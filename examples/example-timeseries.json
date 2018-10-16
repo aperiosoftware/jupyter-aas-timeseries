@@ -19,15 +19,13 @@
 			"scale": "xscale",
 			"title": "Observation time",
 			"titleFontSize": 16,
-			"titleFontWeight": 600,
-			"labelFontSize": 12
+			"titleFontWeight": 600
 		},{
 			"orient": "left",
 			"scale": "yscale",
 			"title": "Intensity",
-			"titleFontSize": 14,
-			"titleFontWeight": 600,
-			"labelFontSize": 12
+			"titleFontSize": 16,
+			"titleFontWeight": 600
 		}
 	],
 	"marks":[{
