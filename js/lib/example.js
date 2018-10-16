@@ -28,29 +28,58 @@ var TimeSeriesModel = widgets.DOMWidgetModel.extend({
 var TimeSeriesView = widgets.DOMWidgetView.extend({
     render: function() {
 
-      width = this.model.get('width');
-      height = this.model.get('height');
-      console.log('size', width, height);
+		console.log('render');
+		
+		// Make the instance of TimeSeries here
+		// this.el references the DOM object
+		width = this.model.get('width');
+		height = this.model.get('height');
 
-    	console.log('render',this,this.model,this.el);
-      S(this.el).css({'width':width+'px','height':height+'px'});
+		// We need to create an element 
+		var div = document.createElement('div');
+		var id = 'timeseries-xxxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+			return v.toString(16);
+		});
 
-    	// The problem here is that we can't render the widget *until*
-    	// we have the JSON that defines the size
+		// Set the ID of the div we've created
+		div.id = id;
 
-    	// Add a custom message callback
-        this.model.on('msg:custom', this.handle_custom_message, this);
-        this.model.on('change:width', this.size_changed, this);
-        this.model.on('change:height', this.size_changed, this);
+		// Add the div to the element (at this point JupyterWidgets 
+		// hasn't actually added it to the DOM; it does that after render)
+		this.el.appendChild(div);
 
-    },
+		// Parse the JSON from a string
+		data = JSON.parse(this.model.get('vega_json'));
+		
+		// We need to set up a function that keeps checking the DOM
+		// for the element to be added. 
+		var ticker = window.setInterval(function(){
 
-    handle_custom_message: function(msg) {
-    	console.log('handle_custom_message',msg)
-    	// Make the instance of TimeSeries here
-    	// this.el references the DOM object
-    	var t = TimeSeries.create(msg,{fit:true});
-    	t.initialize(this.el);
+			var el = S('#'+id);
+
+			// If the element now exists...
+			if(el.length == 1){
+				
+				// Stop any further checks
+				window.clearInterval(ticker);
+				
+				// Set the width and height of the element
+				el.css({'width':width+'px','height':height+'px'});
+				
+				// Create the TimeSeries and make it fit to the parent
+				var t = TimeSeries.create(data,{fit:true});
+
+				// Attach the timeseries to the element
+				t.initialize(el[0]);
+			}
+
+		}, 10, this);
+
+		// Add a custom message callback
+		this.model.on('change:width', this.size_changed, this);
+		this.model.on('change:height', this.size_changed, this);
+
     },
 
     size_changed: function() {
