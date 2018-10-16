@@ -6,7 +6,7 @@ var _ = require('lodash');
 require('./aas-time-series-js/resources/stuquery.js');
 require('./aas-time-series-js/resources/graph.js');
 require('./aas-time-series-js/resources/timeseries.js');
-
+require('./aas-time-series-js/resources/aas.css');
 
 // We should have the resources at this point
 console.log('Loaded TimeSeries resources',S,Graph,TimeSeries)
@@ -26,6 +26,7 @@ var TimeSeriesModel = widgets.DOMWidgetModel.extend({
 
 // Custom View. Renders the widget model.
 var TimeSeriesView = widgets.DOMWidgetView.extend({
+
     render: function() {
 
 		console.log('render');
@@ -51,34 +52,25 @@ var TimeSeriesView = widgets.DOMWidgetView.extend({
 
 		// Parse the JSON from a string
 		data = JSON.parse(this.model.get('vega_json'));
-		
-		// We need to set up a function that keeps checking the DOM
-		// for the element to be added. 
-		var ticker = window.setInterval(function(){
-
-			var el = S('#'+id);
-
-			// If the element now exists...
-			if(el.length == 1){
-				
-				// Stop any further checks
-				window.clearInterval(ticker);
-				
-				// Set the width and height of the element
-				el.css({'width':width+'px','height':height+'px'});
-				
-				// Create the TimeSeries and make it fit to the parent
-				var t = TimeSeries.create(data,{fit:true});
-
-				// Attach the timeseries to the element
-				t.initialize(el[0]);
-			}
-
-		}, 10, this);
 
 		// Add a custom message callback
 		this.model.on('change:width', this.size_changed, this);
 		this.model.on('change:height', this.size_changed, this);
+		this.once('displayed', () => {
+
+			console.log('displayed',id);
+
+			var el = S('#'+id);
+
+			// Set the width and height of the element
+			el.css({'width':width+'px','height':height+'px'});
+			
+			// Create the TimeSeries and make it fit to the parent
+			var t = TimeSeries.create(data,{fit:true});
+
+			// Attach the timeseries to the element
+			t.initialize(el[0]);	
+		});
 
     },
 

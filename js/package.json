@@ -17,7 +17,8 @@
   ],
   "files": [
     "lib/**/*.js",
-    "dist/*.js"
+    "dist/*.js",
+    "lib/**/*.css"
   ],
   "scripts": {
     "clean": "rimraf dist/",
@@ -31,6 +32,8 @@
   },
   "dependencies": {
     "@jupyter-widgets/base": "^1.0.0",
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2",
     "lodash": "^4.17.4"
   },
   "jupyterlab": {
