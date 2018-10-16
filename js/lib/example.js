@@ -27,22 +27,38 @@ var TimeSeriesModel = widgets.DOMWidgetModel.extend({
 // Custom View. Renders the widget model.
 var TimeSeriesView = widgets.DOMWidgetView.extend({
     render: function() {
-    	console.log('render',this,this.model)
+
+      width = this.model.get('width');
+      height = this.model.get('height');
+      console.log('size', width, height);
+
+    	console.log('render',this,this.model,this.el);
+      S(this.el).css({'width':width+'px','height':height+'px'});
 
     	// The problem here is that we can't render the widget *until*
     	// we have the JSON that defines the size
-    	
+
     	// Add a custom message callback
         this.model.on('msg:custom', this.handle_custom_message, this);
+        this.model.on('change:width', this.size_changed, this);
+        this.model.on('change:height', this.size_changed, this);
+
     },
 
     handle_custom_message: function(msg) {
     	console.log('handle_custom_message',msg)
     	// Make the instance of TimeSeries here
     	// this.el references the DOM object
-    	var t = TimeSeries.create(msg,{});
-		t.initialize(this.el);  	
-s    }
+    	var t = TimeSeries.create(msg,{fit:true});
+    	t.initialize(this.el);
+    },
+
+    size_changed: function() {
+      width = this.model.get('width');
+      height = this.model.get('height');
+      console.log('size changed', width, height);
+    }
+
 });
 
 
