@@ -10,3 +10,4 @@ ipytimeseries/static/
 
 # OS X
 .DS_Store
+*.log
