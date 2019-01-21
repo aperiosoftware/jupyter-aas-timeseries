@@ -1,14 +1,14 @@
-var ipytimeseries = require('./index');
+var jupyter_aas_timeseries = require('./index');
 var base = require('@jupyter-widgets/base');
 
 module.exports = {
-  id: 'ipytimeseries',
+  id: 'jupyter_aas_timeseries',
   requires: [base.IJupyterWidgetRegistry],
   activate: function(app, widgets) {
       widgets.registerWidget({
-          name: 'ipytimeseries',
-          version: ipytimeseries.version,
-          exports: ipytimeseries
+          name: 'jupyter_aas_timeseries',
+          version: jupyter_aas_timeseries.version,
+          exports: jupyter_aas_timeseries
       });
   },
   autoStart: true

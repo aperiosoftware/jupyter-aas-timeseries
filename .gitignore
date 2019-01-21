@@ -6,7 +6,7 @@ build/
 node_modules/
 
 # Compiled javascript
-ipytimeseries/static/
+jupyter_aas_timeseries/static/
 
 # OS X
 .DS_Store

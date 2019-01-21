@@ -1,2 +1,2 @@
-recursive-include ipytimeseries/static *.*
-include ipytimeseries.json
+recursive-include jupyter_aas_timeseries/static *.*
+include jupyter_aas_timeseries.json

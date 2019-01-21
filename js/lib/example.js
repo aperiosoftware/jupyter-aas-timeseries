@@ -16,8 +16,8 @@ var TimeSeriesModel = widgets.DOMWidgetModel.extend({
     defaults: _.extend(widgets.DOMWidgetModel.prototype.defaults(), {
         _model_name : 'TimeSeriesModel',
         _view_name : 'TimeSeriesView',
-        _model_module : 'ipytimeseries',
-        _view_module : 'ipytimeseries',
+        _model_module : 'jupyter_aas_timeseries',
+        _view_module : 'jupyter_aas_timeseries',
         _model_module_version : '0.1.0',
         _view_module_version : '0.1.0',
     })

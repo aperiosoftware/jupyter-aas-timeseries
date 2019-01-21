@@ -6,6 +6,6 @@ def _jupyter_nbextension_paths():
     return [{
         'section': 'notebook',
         'src': 'static',
-        'dest': 'ipytimeseries',
-        'require': 'ipytimeseries/extension'
+        'dest': 'jupyter_aas_timeseries',
+        'require': 'jupyter_aas_timeseries/extension'
     }]

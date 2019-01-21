@@ -7,5 +7,5 @@ Package Install
 - [node](http://nodejs.org/)
 
 ```bash
-npm install --save ipytimeseries
+npm install --save jupyter-aas-timeseries
 ```

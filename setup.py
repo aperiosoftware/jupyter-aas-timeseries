@@ -66,8 +66,8 @@ class NPM(Command):
     node_modules = os.path.join(node_root, 'node_modules')
 
     targets = [
-        os.path.join(here, 'ipytimeseries', 'static', 'extension.js'),
-        os.path.join(here, 'ipytimeseries', 'static', 'index.js')
+        os.path.join(here, 'jupyter_aas_timeseries', 'static', 'extension.js'),
+        os.path.join(here, 'jupyter_aas_timeseries', 'static', 'index.js')
     ]
 
     def initialize_options(self):
@@ -80,9 +80,9 @@ class NPM(Command):
         npmName = 'npm';
         if platform.system() == 'Windows':
             npmName = 'npm.cmd';
-            
+
         return npmName;
-    
+
     def has_npm(self):
         npmName = self.get_npm_name();
         try:
@@ -121,22 +121,22 @@ class NPM(Command):
         update_package_data(self.distribution)
 
 version_ns = {}
-with open(os.path.join(here, 'ipytimeseries', '_version.py')) as f:
+with open(os.path.join(here, 'jupyter_aas_timeseries', '_version.py')) as f:
     exec(f.read(), {}, version_ns)
 
 setup_args = {
-    'name': 'ipytimeseries',
+    'name': 'jupyter-aas-timeseries',
     'version': version_ns['__version__'],
     'description': 'Jupyter Widget for the AAS Time Series project',
     'long_description': LONG_DESCRIPTION,
     'include_package_data': True,
     'data_files': [
-        ('share/jupyter/nbextensions/ipytimeseries', [
-            'ipytimeseries/static/extension.js',
-            'ipytimeseries/static/index.js',
-            'ipytimeseries/static/index.js.map',
+        ('share/jupyter/nbextensions/jupyter_aas_timeseries', [
+            'jupyter_aas_timeseries/static/extension.js',
+            'jupyter_aas_timeseries/static/index.js',
+            'jupyter_aas_timeseries/static/index.js.map',
         ],),
-        ('etc/jupyter/nbconfig/notebook.d/' ,['ipytimeseries.json'])
+        ('etc/jupyter/nbconfig/notebook.d/' ,['jupyter_aas_timeseries.json'])
     ],
     'install_requires': [
         'ipywidgets>=7.0.0',
@@ -152,7 +152,7 @@ setup_args = {
 
     'author': 'Thomas Robitaille and Stuart Lowe',
     'author_email': 'thomas.robitaille@gmail.com',
-    'url': 'https://github.com/aperiosoftware/ipytimeseries',
+    'url': 'https://github.com/aperiosoftware/jupyter-aas-timeseries',
     'keywords': [
         'ipython',
         'jupyter',

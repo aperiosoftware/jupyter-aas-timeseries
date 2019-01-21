@@ -1,4 +1,4 @@
-ipytimeseries
+jupyter_aas_timeseries
 ===============================
 
 Jupyter Widget for the AAS Time Series project
@@ -8,8 +8,8 @@ Installation
 
 To install use pip:
 
-    $ pip install ipytimeseries
-    $ jupyter nbextension enable --py --sys-prefix ipytimeseries
+    $ pip install jupyter-aas-timeseries
+    $ jupyter nbextension enable --py --sys-prefix jupyter-aas-timeseries
 
 
 Development workflow
@@ -17,11 +17,11 @@ Development workflow
 
 For a development installation (requires npm),
 
-    $ git clone https://github.com/aperiosoftware/ipytimeseries.git
-    $ cd ipytimeseries
+    $ git clone https://github.com/aperiosoftware/jupyter-aas-timeseries.git
+    $ cd jupyter-aas-timeseries
     $ pip install -e .
-    $ jupyter nbextension install --py --symlink --sys-prefix ipytimeseries
-    $ jupyter nbextension enable --py --sys-prefix ipytimeseries
+    $ jupyter nbextension install --py --symlink --sys-prefix jupyter-aas-timeseries
+    $ jupyter nbextension enable --py --sys-prefix jupyter-aas-timeseries
 
 If you make any changes to the Python code, you do not have to run these
 commands again but you will need to restart the kernel from the notebook.
