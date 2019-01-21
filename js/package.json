@@ -1,6 +1,6 @@
 {
   "name": "jupyter-aas-timeseries",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Jupyter Widget for the AAS Time Series project",
   "author": "Thomas Robitaille and Stuart Lowe",
   "main": "lib/index.js",
