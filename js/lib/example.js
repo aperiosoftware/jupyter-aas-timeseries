@@ -16,8 +16,8 @@ var TimeSeriesModel = widgets.DOMWidgetModel.extend({
     defaults: _.extend(widgets.DOMWidgetModel.prototype.defaults(), {
         _model_name : 'TimeSeriesModel',
         _view_name : 'TimeSeriesView',
-        _model_module : 'jupyter_aas_timeseries',
-        _view_module : 'jupyter_aas_timeseries',
+        _model_module : 'jupyter-aas-timeseries',
+        _view_module : 'jupyter-aas-timeseries',
         _model_module_version : '0.1.0',
         _view_module_version : '0.1.0',
     })
@@ -30,13 +30,13 @@ var TimeSeriesView = widgets.DOMWidgetView.extend({
     render: function() {
 
 		console.log('render');
-		
+
 		// Make the instance of TimeSeries here
 		// this.el references the DOM object
 		width = this.model.get('width');
 		height = this.model.get('height');
 
-		// We need to create an element 
+		// We need to create an element
 		var div = document.createElement('div');
 		var id = 'timeseries-xxxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 			var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -46,7 +46,7 @@ var TimeSeriesView = widgets.DOMWidgetView.extend({
 		// Set the ID of the div we've created
 		div.id = id;
 
-		// Add the div to the element (at this point JupyterWidgets 
+		// Add the div to the element (at this point JupyterWidgets
 		// hasn't actually added it to the DOM; it does that after render)
 		this.el.appendChild(div);
 
@@ -64,12 +64,12 @@ var TimeSeriesView = widgets.DOMWidgetView.extend({
 
 			// Set the width and height of the element
 			el.css({'width':width+'px','height':height+'px'});
-			
+
 			// Create the TimeSeries and make it fit to the parent
 			var t = TimeSeries.create(data,{'fit':true,'tooltip':{'theme':'aas-theme'}});
 
 			// Attach the timeseries to the element
-			t.initialize(el[0]);	
+			t.initialize(el[0]);
 		});
 
     },
