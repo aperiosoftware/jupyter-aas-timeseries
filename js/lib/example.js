@@ -66,7 +66,7 @@ var TimeSeriesView = widgets.DOMWidgetView.extend({
 			el.css({'width':width+'px','height':height+'px'});
 
 			// Create the TimeSeries and make it fit to the parent
-			var t = TimeSeries.create(data,{'fit':true,'tooltip':{'theme':'aas-theme'}});
+			var t = TimeSeries.create(data,{'fit':false,'tooltip':{'theme':'aas-theme'}});
 
 			// Attach the timeseries to the element
 			t.initialize(el[0]);
