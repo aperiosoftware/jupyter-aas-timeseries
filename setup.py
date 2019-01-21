@@ -131,12 +131,12 @@ setup_args = {
     'long_description': LONG_DESCRIPTION,
     'include_package_data': True,
     'data_files': [
-        ('share/jupyter/nbextensions/jupyter_aas_timeseries', [
+        ('share/jupyter/nbextensions/jupyter-aas-timeseries', [
             'jupyter_aas_timeseries/static/extension.js',
             'jupyter_aas_timeseries/static/index.js',
             'jupyter_aas_timeseries/static/index.js.map',
         ],),
-        ('etc/jupyter/nbconfig/notebook.d/' ,['jupyter_aas_timeseries.json'])
+        ('etc/jupyter/nbconfig/notebook.d/' ,['jupyter-aas-timeseries.json'])
     ],
     'install_requires': [
         'ipywidgets>=7.0.0',

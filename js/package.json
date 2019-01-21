@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aperiosoftware/jupyter_aas_timeseries.git"
+    "url": "https://github.com/aperiosoftware/jupyter-aas-timeseries.git"
   },
   "keywords": [
     "jupyter",

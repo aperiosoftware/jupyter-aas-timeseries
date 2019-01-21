@@ -61,7 +61,7 @@ module.exports = [
             filename: 'index.js',
             path: path.resolve(__dirname, 'dist'),
             libraryTarget: 'amd',
-            publicPath: 'https://unpkg.com/jupyter_aas_timeseries@' + version + '/dist/'
+            publicPath: 'https://unpkg.com/jupyter-aas-timeseries@' + version + '/dist/'
         },
         devtool: 'source-map',
         module: {

@@ -1,5 +1,0 @@
-{
-  "load_extensions": {
-    "jupyter_aas_timeseries/extension": true
-  }
-}
