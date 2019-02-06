@@ -18,8 +18,8 @@ var TimeSeriesModel = widgets.DOMWidgetModel.extend({
         _view_name : 'TimeSeriesView',
         _model_module : 'jupyter-aas-timeseries',
         _view_module : 'jupyter-aas-timeseries',
-        _model_module_version : '0.1.3',
-        _view_module_version : '0.1.3',
+        _model_module_version : '0.1.4',
+        _view_module_version : '0.1.4',
     })
 });
 
