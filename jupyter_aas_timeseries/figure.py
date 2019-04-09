@@ -14,8 +14,8 @@ class TimeSeriesWidget(widgets.DOMWidget):
     _model_name = Unicode('TimeSeriesModel').tag(sync=True)
     _view_module = Unicode('jupyter-aas-timeseries').tag(sync=True)
     _model_module = Unicode('jupyter-aas-timeseries').tag(sync=True)
-    _view_module_version = Unicode('^0.1.4').tag(sync=True)
-    _model_module_version = Unicode('^0.1.4').tag(sync=True)
+    _view_module_version = Unicode('^0.1.5').tag(sync=True)
+    _model_module_version = Unicode('^0.1.5').tag(sync=True)
 
     width = Integer(600).tag(sync=True)
     height = Integer(480).tag(sync=True)
