@@ -2,6 +2,8 @@ import json
 import ipywidgets as widgets
 from traitlets import Unicode, Integer
 
+__all__ = ['TimeSeriesWidget']
+
 
 @widgets.register
 class TimeSeriesWidget(widgets.DOMWidget):
