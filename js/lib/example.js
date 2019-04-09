@@ -3,6 +3,7 @@ var widgets = require('@jupyter-widgets/base');
 var _ = require('lodash');
 
 // Load the Javascript necessary for the TimeSeriess
+self.Big = require('./aas-time-series-js/resources/big.min.js');
 require('./aas-time-series-js/resources/stuquery.js');
 require('./aas-time-series-js/resources/graph.js');
 require('./aas-time-series-js/resources/timeseries.js');
